@@ -7,8 +7,17 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Program import Program
 
 class Ui_MainWindow(object):
+
+    def __init__(self):
+        self.program = Program
+        self.user_name = ""
+        self.user_email = ""
+        self.time = 00
+        self.font = ""
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -162,7 +171,7 @@ class Ui_MainWindow(object):
         self.fontComboBox.raise_()
         self.fontLabel.raise_()
         self.emailEdit.raise_()
-        self.startBtn = QtWidgets.QPushButton(self.centralwidget)
+        self.startBtn = QtWidgets.QPushButton(self.centralwidget, clicked = lambda : self.start_handler())
         self.startBtn.setGeometry(QtCore.QRect(210, 460, 161, 61))
         self.startBtn.setStyleSheet("    font-size: 30px;\n"
 "    font-weight: bold;\n"
@@ -239,6 +248,11 @@ class Ui_MainWindow(object):
         self.actionpaste_data_only.setText(_translate("MainWindow", "paste (data only)"))
         self.actionpaste_with_syosiki.setText(_translate("MainWindow", "paste( with syosiki)"))
 
+    def start_handler(self):
+        self.program.function01()
+
+    def finish_handler(self):
+        sys.exit(app.exec_())
 
 if __name__ == "__main__":
     import sys
