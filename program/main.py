@@ -1,5 +1,5 @@
-from UI import *
-from Program import *
+from program import UI as ui
+from program import test as test
 
 def main():
     pass

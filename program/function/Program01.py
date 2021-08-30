@@ -42,7 +42,8 @@ def main():
             if left_distance < right_distance:
                 status = "LEFT"
             if left_distance == right_distance:
-                status = ""
+                status = "OK"
+
             cv2.putText(image, "Status:", (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 1, cv2.LINE_AA)
             cv2.putText(image, status, (150, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 1, cv2.LINE_AA)
 
