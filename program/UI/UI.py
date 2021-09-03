@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'UI.ui'
@@ -7,8 +8,11 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import sys
 
-class Ui_MainWindow(object):
+
+class Ui_MainWindow():
+# class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
@@ -36,14 +40,17 @@ class Ui_MainWindow(object):
         background-color: rgb(166, 166, 166);border-style: none;padding-top: 10px;}")
         self.functionGBox.setAlignment(QtCore.Qt.AlignCenter)
         self.functionGBox.setObjectName("functionGBox")
+
         self.healthyModeBtn = QtWidgets.QRadioButton(self.functionGBox)
         self.healthyModeBtn.setGeometry(QtCore.QRect(22, 65, 180, 21))
+        self.healthyModeBtn.setChecked(True)
+
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.healthyModeBtn.setFont(font)
-        self.healthyModeBtn.setStyleSheet("    background-color: rgb(166, 166, 166); \n"
+        self.healthyModeBtn.setStyleSheet("background-color: rgb(166, 166, 166);"
 "")
         self.healthyModeBtn.setObjectName("healthyModeBtn")
         self.mannerModeBtn = QtWidgets.QRadioButton(self.functionGBox)
@@ -113,9 +120,7 @@ class Ui_MainWindow(object):
         self.timeEdit.setObjectName("timeEdit")
         self.nameEdit = QtWidgets.QLineEdit(self.settingGBpx)
         self.nameEdit.setGeometry(QtCore.QRect(130, 50, 171, 31))
-        self.nameEdit.setStyleSheet("    background-color: rgb(255, 255, 255); \n"
-"    border-style: none;\n"
-"")
+        self.nameEdit.setStyleSheet("background-color: rgb(255, 255, 255);border-style: none;")
         self.nameEdit.setAlignment(QtCore.Qt.AlignJustify|QtCore.Qt.AlignVCenter)
         self.nameEdit.setObjectName("nameEdit")
         self.fontComboBox = QtWidgets.QFontComboBox(self.settingGBpx)
@@ -125,14 +130,16 @@ class Ui_MainWindow(object):
         self.fontComboBox.setObjectName("fontComboBox")
         self.fontLabel = QtWidgets.QLabel(self.settingGBpx)
         self.fontLabel.setGeometry(QtCore.QRect(26, 150, 60, 30))
+
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
         font.setWeight(75)
         self.fontLabel.setFont(font)
-        self.fontLabel.setStyleSheet("    background-color: rgb(166, 166, 166); \n"
-"")
+        self.fontLabel.setStyleSheet("background-color: rgb(166, 166, 166);")
         self.fontLabel.setObjectName("fontLabel")
+        
+        #######################
         self.nameLabel.raise_()
         self.emailLabel.raise_()
         self.timeLabel.raise_()
@@ -141,19 +148,27 @@ class Ui_MainWindow(object):
         self.fontComboBox.raise_()
         self.fontLabel.raise_()
         self.emailEdit.raise_()
+        ##########################
+        
         self.startBtn = QtWidgets.QPushButton(self.centralwidget)
         self.startBtn.setGeometry(QtCore.QRect(210, 460, 161, 61))
         self.startBtn.setStyleSheet("font-size: 30px; font-weight: bold; background-color: rgb(166, 166, 166); border-style: none;")
         self.startBtn.setObjectName("startBtn")
+        self.startBtn.clicked.connect(self.funcStart)
+        
         self.finishBtn = QtWidgets.QPushButton(self.centralwidget)
         self.finishBtn.setGeometry(QtCore.QRect(420, 460, 151, 61))
         self.finishBtn.setStyleSheet("font-size: 30px; font-weight: bold; background-color: rgb(166, 166, 166); border-style: none;")
         self.finishBtn.setObjectName("finishBtn")
+        self.finishBtn.clicked.connect(self.closeEvent)
+        
+        ########################
         self.functionGBox.raise_()
         self.programNameLabel.raise_()
         self.settingGBpx.raise_()
         self.startBtn.raise_()
         self.finishBtn.raise_()
+        #######################
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -212,11 +227,38 @@ class Ui_MainWindow(object):
         self.actionpaste_data_only.setText(_translate("MainWindow", "paste (data only)"))
         self.actionpaste_with_syosiki.setText(_translate("MainWindow", "paste( with syosiki)"))
 
-    def example(self):
-        print("1")
+    def funcStart(self):
+        if self.healthyModeBtn.isChecked():
+            print("healty mode")
+            from function import Program01
+            Program01.main()
+
+    def closeEvent(self,event):
+        #  close = QtWidgets.QMessageBox.question(
+        #     self,
+        #     "Close Application",
+        #     "Are you sure?",
+        #     QMessageBox.Yes | QMessageBox.No,
+        #     QMessageBox.No
+        # )
+        # e.ignore()
+        # if close == QMessageBox.Yes:
+        #     e.accept()
+
+
+        result = self.QtWidgets.QMessageBox.question(
+        self, 'Confirm Close', 'Are you sure you want to close?',
+        QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
+        if result == QtWidgets.QMessageBox.Yes:
+                event.accept()
+        else:
+                event.ignore()
+        
+        
+        
 
 def main():
-    import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
