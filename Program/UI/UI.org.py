@@ -12,17 +12,22 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
-        MainWindow.setMinimumSize(QtCore.QSize(800, 600)) # windwoのmin,max最大を同じにしてウィンドウ幅を固定にする最
+        MainWindow.setMinimumSize(QtCore.QSize(800, 600)) # 小最大を同じにしてウィンドウ幅を固定にする最
         MainWindow.setMaximumSize(QtCore.QSize(800, 600)) 
         icon = QtGui.QIcon() #setting icon image
         icon.addPixmap(QtGui.QPixmap("image/cat.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
-        MainWindow.setStyleSheet("MainWindow{color: rgb(254, 254, 254); background-color: rgb(53, 53, 53);}")
+        MainWindow.setStyleSheet("MainWindow\n"
+"{\n"
+"color: rgb(254, 254, 254);\n"
+"    background-color: rgb(53, 53, 53);\n"
+"}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setStyleSheet("background-color: rgb(0, 255, 127);color: rgb(61, 61, 61);")
+        self.centralwidget.setStyleSheet("background-color: rgb(0, 255, 127);\n"
+"color: rgb(61, 61, 61);")
         self.centralwidget.setObjectName("centralwidget")
         self.programNameLabel = QtWidgets.QLabel(self.centralwidget)
-        self.programNameLabel.setGeometry(QtCore.QRect(280, 20, 251, 111))
+        self.programNameLabel.setGeometry(QtCore.QRect(240, 20, 330, 111))
 
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
@@ -32,8 +37,14 @@ class Ui_MainWindow(object):
         self.functionGBox = QtWidgets.QGroupBox(self.centralwidget)
         self.functionGBox.setGeometry(QtCore.QRect(30, 160, 341, 271))
         self.functionGBox.setAutoFillBackground(False)
-        self.functionGBox.setStyleSheet("QGroupBox{font-size: 30px; font-weight: bold; \
-        background-color: rgb(166, 166, 166);border-style: none;padding-top: 10px;}")
+        self.functionGBox.setStyleSheet("QGroupBox\n"
+"{\n"
+"    font-size: 30px;\n"
+"    font-weight: bold;\n"
+"    background-color: rgb(166, 166, 166);\n"
+"    border-style: none;\n"
+"    padding-top: 10px;\n"
+"}")
         self.functionGBox.setAlignment(QtCore.Qt.AlignCenter)
         self.functionGBox.setObjectName("functionGBox")
         self.healthyModeBtn = QtWidgets.QRadioButton(self.functionGBox)
@@ -63,12 +74,19 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.nekozeModeBtn.setFont(font)
-        self.nekozeModeBtn.setStyleSheet("background-color: rgb(166, 166, 166);")
+        self.nekozeModeBtn.setStyleSheet("    background-color: rgb(166, 166, 166); \n"
+"")
         self.nekozeModeBtn.setObjectName("nekozeModeBtn")
         self.settingGBpx = QtWidgets.QGroupBox(self.centralwidget)
         self.settingGBpx.setGeometry(QtCore.QRect(420, 160, 351, 271))
-        self.settingGBpx.setStyleSheet("QGroupBox{font-size: 30px;font-weight: bold;\
-        background-color: rgb(166, 166, 166); border-style: none;}")
+        self.settingGBpx.setStyleSheet("QGroupBox\n"
+"{\n"
+"    font-size: 30px;\n"
+"    font-weight: bold;\n"
+"    background-color: rgb(166, 166, 166);\n"
+"    border-style: none;\n"
+"\n"
+"}")
         self.settingGBpx.setAlignment(QtCore.Qt.AlignCenter)
         self.settingGBpx.setObjectName("settingGBpx")
         self.nameLabel = QtWidgets.QLabel(self.settingGBpx)
@@ -78,7 +96,9 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.nameLabel.setFont(font)
-        self.nameLabel.setStyleSheet("color: rgb(61, 61, 61); background-color: rgb(166, 166, 166);")
+        self.nameLabel.setStyleSheet("color: rgb(61, 61, 61);\n"
+"    background-color: rgb(166, 166, 166); \n"
+"")
         self.nameLabel.setObjectName("nameLabel")
         self.emailLabel = QtWidgets.QLabel(self.settingGBpx)
         self.emailLabel.setGeometry(QtCore.QRect(26, 102, 131, 21))
@@ -88,8 +108,8 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.emailLabel.setFont(font)
         self.emailLabel.setAutoFillBackground(False)
-        self.emailLabel.setStyleSheet("background-color: rgb(166, 166, 166);")
-        self.emailLabel.setStyleSheet("background-color: rgb(166, 166, 166);")
+        self.emailLabel.setStyleSheet("    background-color: rgb(166, 166, 166); \n"
+"")
         self.emailLabel.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.emailLabel.setObjectName("emailLabel")
         self.timeLabel = QtWidgets.QLabel(self.settingGBpx)
@@ -99,16 +119,18 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.timeLabel.setFont(font)
-        self.timeLabel.setStyleSheet("background-color: rgb(166, 166, 166);")
+        self.timeLabel.setStyleSheet("    background-color: rgb(166, 166, 166); \n"
+"")
         self.timeLabel.setObjectName("timeLabel")
         self.emailEdit = QtWidgets.QLineEdit(self.settingGBpx)
         self.emailEdit.setGeometry(QtCore.QRect(130, 100, 171, 31))
-        self.emailEdit.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.emailEdit.setStyleSheet("    background-color: rgb(255, 255, 255); \n"
+"")
         self.emailEdit.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.emailEdit.setObjectName("emailEdit")
         self.timeEdit = QtWidgets.QTimeEdit(self.settingGBpx)
         self.timeEdit.setGeometry(QtCore.QRect(130, 200, 171, 31))
-        self.timeEdit.setStyleSheet("background-color: rgb(255, 255, 255);"
+        self.timeEdit.setStyleSheet("    background-color: rgb(255, 255, 255); \n"
 "")
         self.timeEdit.setObjectName("timeEdit")
         self.nameEdit = QtWidgets.QLineEdit(self.settingGBpx)
@@ -143,11 +165,17 @@ class Ui_MainWindow(object):
         self.emailEdit.raise_()
         self.startBtn = QtWidgets.QPushButton(self.centralwidget)
         self.startBtn.setGeometry(QtCore.QRect(210, 460, 161, 61))
-        self.startBtn.setStyleSheet("font-size: 30px; font-weight: bold; background-color: rgb(166, 166, 166); border-style: none;")
+        self.startBtn.setStyleSheet("    font-size: 30px;\n"
+"    font-weight: bold;\n"
+"    background-color: rgb(166, 166, 166);\n"
+"    border-style: none;")
         self.startBtn.setObjectName("startBtn")
         self.finishBtn = QtWidgets.QPushButton(self.centralwidget)
         self.finishBtn.setGeometry(QtCore.QRect(420, 460, 151, 61))
-        self.finishBtn.setStyleSheet("font-size: 30px; font-weight: bold; background-color: rgb(166, 166, 166); border-style: none;")
+        self.finishBtn.setStyleSheet("    font-size: 30px;\n"
+"    font-weight: bold;\n"
+"    background-color: rgb(166, 166, 166);\n"
+"    border-style: none;")
         self.finishBtn.setObjectName("finishBtn")
         self.functionGBox.raise_()
         self.programNameLabel.raise_()
@@ -212,8 +240,6 @@ class Ui_MainWindow(object):
         self.actionpaste_data_only.setText(_translate("MainWindow", "paste (data only)"))
         self.actionpaste_with_syosiki.setText(_translate("MainWindow", "paste( with syosiki)"))
 
-    def example(self):
-        print("1")
 
 def main():
     import sys

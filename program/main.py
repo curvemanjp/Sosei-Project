@@ -1,8 +1,7 @@
-from program import UI as ui
-from program import test as test
+from UI import UI as ui
 
 def main():
-    pass
+    ui.main()
 
-if __name__ == __main__:
+if __name__ == "__main__":
     main()
