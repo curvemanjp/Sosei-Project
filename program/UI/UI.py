@@ -27,6 +27,8 @@ class Ui_MainWindow():
         self.centralwidget.setObjectName("centralwidget")
         self.programNameLabel = QtWidgets.QLabel(self.centralwidget)
         self.programNameLabel.setGeometry(QtCore.QRect(280, 20, 251, 111))
+        ###############
+        self.MainWindow = MainWindow
 
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
@@ -160,7 +162,7 @@ class Ui_MainWindow():
         self.finishBtn.setGeometry(QtCore.QRect(420, 460, 151, 61))
         self.finishBtn.setStyleSheet("font-size: 30px; font-weight: bold; background-color: rgb(166, 166, 166); border-style: none;")
         self.finishBtn.setObjectName("finishBtn")
-        self.finishBtn.clicked.connect(self.closeEvent)
+        self.finishBtn.clicked.connect(self.closeWindow)
         
         ########################
         self.functionGBox.raise_()
@@ -233,7 +235,10 @@ class Ui_MainWindow():
             from function import Program01
             Program01.main()
 
-    def closeEvent(self,event):
+    def closeWindow(self):
+        # self.centralwidget.close()
+        self.MainWindow.close()
+        
         #  close = QtWidgets.QMessageBox.question(
         #     self,
         #     "Close Application",
@@ -246,13 +251,13 @@ class Ui_MainWindow():
         #     e.accept()
 
 
-        result = self.QtWidgets.QMessageBox.question(
-        self, 'Confirm Close', 'Are you sure you want to close?',
-        QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
-        if result == QtWidgets.QMessageBox.Yes:
-                event.accept()
-        else:
-                event.ignore()
+        # result = self.QtWidgets.QMessageBox.question(
+        # self, 'Confirm Close', 'Are you sure you want to close?',
+        # QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No)
+        # if result == QtWidgets.QMessageBox.Yes:
+        #         event.accept()
+        # else:
+        #         event.ignore()
         
         
         
