@@ -84,7 +84,7 @@ class Ui_MainWindow():
 
         ##########mannerModeBtn
         self.nekozeModeBtn = QtWidgets.QRadioButton(self.functionGBox)
-        self.nekozeModeBtn.setGeometry(QtCore.QRect(250, 175, 180, 21))
+        self.nekozeModeBtn.setGeometry(QtCore.QRect(250, 175, 180, 21)) # (x0,y0, width, height) x0,x0はオブジェクトの開始位置
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
